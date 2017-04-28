@@ -1,0 +1,28 @@
+/**
+ * table数据接口
+ *
+ * @url /user
+ *
+ * 详细的说明
+ * uid: userID
+ * name: username
+ * email: 邮件
+ */
+ 
+{
+  "code": 0,
+  "total":80,
+  "size":20,
+  "result|80": [
+    {
+    "name": "@cname()",
+    "number|0-1": 1,
+    "age|1-100": 100,
+    "color": "@color",
+    "date": "@date",
+    "county": "@county(true)",
+    "guid": "@guid",
+    "tag|1-5.1-5": 1
+    }
+  ]
+}
