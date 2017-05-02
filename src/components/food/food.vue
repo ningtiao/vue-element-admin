@@ -136,7 +136,7 @@
         let total = this.total
         let curNo = (this.filter.currentPage - 1) * pageSize
         let num = total % pageSize
-        console.log(curNo + '22');
+        console.log(curNo + '页');
         let userDatalist = []
         for(let i = 0; i < pageSize; i++) {
             userDatalist.push(data[curNo + i])
