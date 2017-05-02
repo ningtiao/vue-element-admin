@@ -89,6 +89,19 @@
         console.log(index, row);
       },
       handleDelete(index, row) {
+        this.$confirm('确认删除吗?', '提示' , {
+          type: 'warning'
+        }).then(() => {
+          this.loading = true;
+            setTimeout(() => {
+              this.$message({
+                message: '删除成功',
+                type: 'success'
+              });
+              this.loading = false;
+            }, 2000);
+            this.userData.splice(index, 1);
+        })
         console.log(index, row);
       },
       handleSizeChange(val) {
