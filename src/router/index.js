@@ -6,8 +6,9 @@
   import seller from '../components/table/seller';
   import echarts from '../components/echarts/echarts';
   import opinion from '../components/echarts/opinion';
+  import baseform from '../components/baseform/baseform';
   import steps from '../components/steps/steps';
-
+  import steps2 from '../components/steps/steps2';
   const routes = [
     {
       path: '/',
@@ -40,6 +41,15 @@
     {
       path: '/',
       component: Hello,
+      name: '表单',
+      iconCls: 'el-icon-message',
+      children: [
+          { path: '/baseform', component: baseform, name: '基本表单' }
+      ]
+    },
+    {
+      path: '/',
+      component: Hello,
       name: '订单中心',
       iconCls: 'el-icon-message',
       children: [
@@ -64,7 +74,8 @@
         iconCls: 'fa fa-address-card',
         leaf: true,
         children:[
-        { path: 'steps', component: steps, name: '导航三' }
+          { path: 'steps', component: steps, name: '导航三' },
+          { path: 'steps2', component: steps2, name: '导航55三' }
       ]
     }
   ];
