@@ -64,7 +64,7 @@
         iconCls: 'fa fa-bar-chart',
         children: [
             { path: '/echarts', name: '柱状图', component: echarts },
-            { path: '/opinion', name: '意见', component: opinion }
+            { path: '/opinion', name: '子父组件通信', component: opinion }
         ]
     },
     {
