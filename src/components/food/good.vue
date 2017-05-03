@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="crumbs">
+        <el-breadcrumb separator="/">
+            <el-breadcrumb-item><i class="el-icon-date"></i> 组件</el-breadcrumb-item>
+            <el-breadcrumb-item>子组件</el-breadcrumb-item>
+        </el-breadcrumb>
+    </div>
     <el-form :model="ruleForm" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="审核意见" prop="region">
           <el-select  v-model="value" placeholder="请选择" @change="selectVal">
@@ -72,6 +78,6 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-h1
- color:#1F2D3D
+.demo-ruleForm
+  margin: 20px
 </style>

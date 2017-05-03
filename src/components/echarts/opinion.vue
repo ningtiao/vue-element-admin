@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <h1 class="title">父组件内容</h1>
+    <div class="crumbs">
+      <el-breadcrumb separator="/">
+          <el-breadcrumb-item><i class="el-icon-date"></i> 组件</el-breadcrumb-item>
+          <el-breadcrumb-item>父组件</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <good v-on:listen="addChid" :options="options"></good>
   </div>
 </template>
