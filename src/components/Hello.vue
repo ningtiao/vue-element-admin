@@ -17,14 +17,14 @@
         </el-menu>
       </el-col>
       <el-col :span="4" class="userinfo">
-          <el-dropdown>
+          <el-dropdown  @command="handleCommand">
             <span class="el-dropdown-link">
               杨家馨<i class="el-icon-caret-bottom el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>我的消息</el-dropdown-item>
               <el-dropdown-item>设置</el-dropdown-item>
-              <el-dropdown-item divided>退出登录</el-dropdown-item>
+              <el-dropdown-item command="loginout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
@@ -46,7 +46,7 @@
               </el-col>
           </div>
         </el-col>            
-		</el-col>
+    </el-col>
   </el-row>
 </template>
 
@@ -79,7 +79,13 @@ const ERR_OK = 0;
       },
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
-      }    
+      },
+      handleCommand(command) {
+        if(command == 'loginout'){
+            localStorage.removeItem('ms_username')
+            this.$router.push('/head');
+        }
+    }
     },
   components: {
     food
