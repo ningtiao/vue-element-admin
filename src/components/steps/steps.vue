@@ -6,7 +6,7 @@
       <el-step title="步骤 3"></el-step>
     </el-steps>
     <transition name="fade">
-      <router-view class="view"></router-view>
+      <router-view class="view-router"></router-view>
     </transition>
     <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
   </div>
