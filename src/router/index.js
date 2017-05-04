@@ -1,4 +1,4 @@
-  import head from '../components/head';
+  import login from '../components/login';
   import Hello from '../components/Hello';
   import food from '../components/food/food';
   import good from '../components/food/good';
@@ -12,13 +12,13 @@
   const routes = [
     {
       path: '/',
-      redirect: '/head',
+      redirect: '/login',
       name: '',
       hidden: true
     },
     {
-      path: '/head',
-      component: head,
+      path: '/login',
+      component: login,
       name: '',
       hidden: true
     },

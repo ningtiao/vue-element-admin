@@ -21,7 +21,7 @@
             <span class="el-dropdown-link">
               杨家馨<i class="el-icon-caret-bottom el-icon--right"></i>
             </span>
-            <el-dropdown-menu slot="dropdown">
+            <el-dropdown-menu slot="dropdown" class="drop-menu">
               <el-dropdown-item>我的消息</el-dropdown-item>
               <el-dropdown-item>设置</el-dropdown-item>
               <el-dropdown-item command="loginout">退出登录</el-dropdown-item>
@@ -83,7 +83,7 @@ const ERR_OK = 0;
       handleCommand(command) {
         if(command == 'loginout'){
             localStorage.removeItem('ms_username')
-            this.$router.push('/head');
+            this.$router.push('/login');
         }
     }
     },
@@ -117,6 +117,7 @@ const ERR_OK = 0;
         .el-dropdown-link
           color: #fff
           line-height:60px  
+          cursor:pointer
       .logo 
         width:230px
         height:60px
