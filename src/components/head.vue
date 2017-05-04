@@ -41,6 +41,7 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            this.logining = true;
             setTimeout(() => {
               this.logining = false;
               this.$router.push({ path: '/food' });//如果请求成功就让他3秒跳转路由
