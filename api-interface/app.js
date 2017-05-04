@@ -11,7 +11,7 @@ const server = http.createServer(app);
 
 app.use('/api', mockjs(path.join(__dirname, 'mocks')));
 
-server.listen(port)
+server.listen(port);
 server.on('listening', () => {
   console.log(`Listening on http://localhost:${port}/api`);
 })

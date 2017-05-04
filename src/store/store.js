@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 const state = {
   name: '活动详情',
+  num: '50',
   itemNum: 1,
   itemDetail: [{
     'topic_id': 20,
