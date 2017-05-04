@@ -78,6 +78,5 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-.demo-ruleForm
-  margin: 20px
+
 </style>

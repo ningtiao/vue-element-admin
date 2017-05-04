@@ -74,6 +74,7 @@
       userData:[],
       loading: false,
       total: 0,
+      value1:'',
       filter: {
         pageSize:15, // 页大小
         currentPage: 1, // 当前页
