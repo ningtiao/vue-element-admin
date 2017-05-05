@@ -60,9 +60,37 @@
       @current-change="handleCurrentChange" 
       @size-change="handleSizeChange"
       :total="total"
-      style="float:right;">
+      style="text-align:center;">
       </el-pagination>
     </el-col>
+
+    <!--编辑界面-->
+    <el-dialog title="编辑" v-model="editFormVisible">
+      <el-form label-width="80px" :model="editForm" ref="editForm">
+        <el-form-item label="姓名" prop="name">
+          <el-input v-model="editForm.name" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="性别">
+          <el-radio-group v-model="editForm.number">
+            <el-radio class="radio" :label="1">男</el-radio>
+            <el-radio class="radio" :label="0">女</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="年龄">
+          <el-input-number  v-model="editForm.age" :min="0" :max="200"></el-input-number>
+        </el-form-item>
+        <el-form-item label="生日">
+          <el-date-picker type="date" v-model="editForm.date" placeholder="选择日期"></el-date-picker>
+        </el-form-item>
+        <el-form-item label="地址">
+          <el-input type="textarea" v-model="editForm.county"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="close">取消</el-button>
+        <el-button type="primary" @click="Submit" :loading="loading">提交</el-button>
+      </div>
+    </el-dialog>   
     </div>
 </template>
 
@@ -75,10 +103,19 @@
       loading: false,
       total: 0,
       value1:'',
+      editFormVisible: false,
       filter: {
         pageSize:15, // 页大小
         currentPage: 1, // 当前页
-        },
+      },
+      editForm: {
+        id: 0,
+        name: '',
+        sex: -1,
+        age: 0,
+        birth: '',
+        addr: ''
+      },
      }
    },
     created() {
@@ -92,8 +129,14 @@
       formatSex: function (row, column) {
         return row.number == 1 ? '男' : row.number == 0 ? '女' : '女';
       },
-      handleEdit(index, row) {
-        console.log(index, row);
+      close() {
+        this.editFormVisible = false;
+      },
+      //显示编辑界面
+      handleEdit: function (index, row) {
+        this.editFormVisible = true;
+        this.editForm = Object.assign({}, row);//合并对象操作
+        console.log(this.editForm.name)
       },
       handleDelete(index, row) {
         this.$confirm('确认删除吗?', '提示' , {
@@ -107,7 +150,6 @@
               });
               this.loading = false;
             }, 2000);
-            this.userData.splice(index, 1);
         })
         console.log(index, row);
       },
@@ -119,6 +161,24 @@
         this.filter.currentPage = val;
         this.getuser(datalist)
         console.log(`当前页: ${val}`);
+      },
+      Submit() {
+        this.$refs.editForm.validate((valid) =>{
+          if (valid) {
+            this.$confirm('确认提交吗？', '提示', {}).then(() => {
+              this.loading = true;
+              setTimeout(() => {
+              this.$message({
+                message: '修改成功',
+                type: 'success'
+              });
+              this.loading = false;
+            }, 2000);
+            this.editFormVisible = false;
+            this.getuserData();
+            })
+          }
+        });
       },
       getuserData(callback){
         this.loading = true
