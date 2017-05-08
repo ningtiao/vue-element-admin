@@ -29,7 +29,7 @@
         {
             id: 1,
             name: '鱼香肉丝',
-            price: 12
+            price: 15
         }, {
             id: 2,
             name: '宫保鸡丁',
