@@ -51,7 +51,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import food from '../components/food/food';
+import food from '../components/food/table';
 const ERR_OK = 0;
   export default {
     data() {

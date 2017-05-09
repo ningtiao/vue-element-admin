@@ -1,6 +1,6 @@
   import login from '../components/login';
   import Hello from '../components/Hello';
-  import food from '../components/food/food';
+  import table from '../components/food/table';
   import good from '../components/food/good';
   import cart from '../components/table/cart';
   import seller from '../components/table/seller';
@@ -9,6 +9,7 @@
   import baseform from '../components/baseform/baseform';
   import steps from '../components/steps/steps';
   import steps2 from '../components/steps/steps2';
+  import upload from '../components/upload/upload';
   const routes = [
     {
       path: '/',
@@ -34,7 +35,7 @@
       name: '用户管理',
       iconCls: 'el-icon-message',
       children: [
-          { path: '/food', component: food, name: '用户列表' },
+          { path: '/table', component: table, name: '用户列表' },
           { path: '/good', component: good, name: '数据' }
       ]
     },
@@ -77,6 +78,15 @@
           { path: 'steps', component: steps, name: '导航三' },
           { path: 'steps2', component: steps2, name: '导航55三' }
       ]
-    }
+    },
+    {
+        path: '/',
+        component: Hello,
+        name: '文件上传',
+        iconCls: 'fa fa-bar-chart',
+        children: [
+            { path: '/upload', name: '图片上传', component: upload },
+        ]
+    },
   ];
   export default routes;

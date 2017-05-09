@@ -44,7 +44,7 @@ export default {
             this.logining = true;
             setTimeout(() => {
               this.logining = false;
-              this.$router.push({ path: '/food' });//如果请求成功就让他3秒跳转路由
+              this.$router.push({ path: '/table' });//如果请求成功就让他3秒跳转路由
             }, 2000);
           } else {
             console.log('error submit!!');
