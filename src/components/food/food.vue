@@ -88,7 +88,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="close">取消</el-button>
-        <el-button type="primary" @click="Submit" :loading="loading">提交</el-button>
+        <el-button type="primary" @click="Submit" :loading="loading" class="title1">提交</el-button>
       </div>
     </el-dialog>   
     </div>
@@ -148,8 +148,10 @@
                 message: '删除成功',
                 type: 'success'
               });
+              this.userData.splice(index, 1);
               this.loading = false;
             }, 2000);
+            this.getuserData();
         })
         console.log(index, row);
       },
@@ -215,5 +217,6 @@
  }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-
+.title1
+  font-size: 12px;
 </style>
