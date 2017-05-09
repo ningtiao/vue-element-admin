@@ -116,7 +116,8 @@ const ERR_OK = 0;
           color:#fff
         .el-dropdown-link
           color: #fff
-          line-height:60px  
+          line-height:60px
+          cursor:pointer 
       .logo 
         width:230px
         height:60px
