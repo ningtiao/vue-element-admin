@@ -4,7 +4,7 @@
       <h1 class="title">照片墙</h1>
     </div>
     <el-upload
-      action=""
+      action="https://jsonplaceholder.typicode.com/posts/"
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
       :file-list="fileList2"
