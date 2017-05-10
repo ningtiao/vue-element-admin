@@ -15,6 +15,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
+  import { mapState, GET_DATA } from 'vuex';
   import shopcart from '../../components/shopcart/shopcart';
   import cartcontrol from '../../components/cartcontrol/cartcontrol';
   export default {
@@ -25,26 +26,12 @@
     },
     data() {
       return {
-        foods: [                                                                                                                                                                                                                                                                                                                                                
-        {
-            id: 1,
-            name: '鱼香肉丝',
-            price: 15
-        }, {
-            id: 2,
-            name: '宫保鸡丁',
-            price: 14
-        }, {
-            id: 3,
-            name: '土豆丝',
-            price: 10
-        }, {
-            id: 4,
-            name: '米饭',
-            price: 2
-        }],
+        foos: []
       }
     },
+  	computed: mapState({
+    foods: state => state.foods
+    }),
    components: {
     shopcart,
     cartcontrol
