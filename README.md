@@ -6,7 +6,7 @@
 
 vue2 + vuex + vue-router+ mock.js + webpack + ES6/7 + less + element-ui
 
-##概述mock.js
+## 概述mock.js
   首先啦，我不认识mock.js的作者，带着需求找到mock.js让我觉得很惊艳。
   相对于其他同类的框架的实现，mock.js超出了我的意料。
   基于 数据模板 生成模拟数据。
@@ -16,7 +16,7 @@ vue2 + vuex + vue-router+ mock.js + webpack + ES6/7 + less + element-ui
   使用Mock.js进行独立于后端的前端开发
   thanks http://mockjs.com/
 
-##说明
+## 说明
 
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
@@ -40,9 +40,9 @@ npm run dev
 
 ## 登陆
 
-![](http://cangdu.org/files/images/manage_login.png)
+![image](https://github.com/yjx-passion/vue2.0-module/blob/master/src/components/img/index.png)
 
 ## 首页
-![](http://cangdu.org/files/images/manage_home.png)
+![image](https://github.com/yjx-passion/vue2.0-module/blob/master/src/components/img/table.png)
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
