@@ -23,9 +23,6 @@ vue2 + vuex + vue-router+ mock.js + webpack + ES6/7 + less + element-ui
 >  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
 
 ## 项目运行
-
-
-```
 git clone https://github.com/yjx-passion/vue2.0-module
 
 cd vue2-module  
@@ -36,7 +33,7 @@ npm run dev
 
 访问端口 http://localhost:8002
 
-# 项目截图
+## 项目截图
 
 ## 登陆
 
