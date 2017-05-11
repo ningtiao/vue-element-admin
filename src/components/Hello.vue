@@ -7,7 +7,7 @@
       <el-col :span="4" class="userinfo">
           <el-dropdown  @command="handleCommand">
             <span class="el-dropdown-link">
-              杨家馨<i class="el-icon-caret-bottom el-icon--right"></i>
+              大白菜<i class="el-icon-caret-bottom el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>我的消息</el-dropdown-item>

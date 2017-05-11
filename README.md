@@ -1,6 +1,6 @@
 # vue-project
 
-> A Vue.js project
+> 此项目是vue + element ui的后台管理系统
 
 ## Build Setup
 
