@@ -31,7 +31,7 @@ npm install
 
 npm run dev 
 
-访问端口 http://localhost:8002
+访问端口 http://localhost:8080
 
 ## 项目截图
 
