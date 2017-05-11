@@ -47,6 +47,11 @@ export default {
               this.$router.push({ path: '/table' });//如果请求成功就让他3秒跳转路由
             }, 2000);
           } else {
+            this.$ruleForm.error({
+              title: '错误',
+              message: '请输入正确的用户名密码',
+              offset: 100
+            });
             console.log('error submit!!');
             return false;
           }
@@ -56,20 +61,23 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-.login-container
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06)
+<style lang="less" scoped>
+.login-container {
+    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.06);
     border-radius: 5px;
     margin: 180px auto;
     width: 350px;
-    padding: 35px 35px 15px 35px;
+    padding: 30px 35px 15px 35px;
     background: #fff;
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
-    .title 
+}
+    .title {
       margin: 0px auto 40px auto;
       text-align: center;
       color: #505458;
-    .remember
+    }
+    .remember{
       margin: 0px 0px 35px 0px;
+    }
 </style>

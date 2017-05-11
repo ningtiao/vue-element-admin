@@ -4,6 +4,7 @@
   import good from '../components/food/good';
   import cart from '../components/table/cart';
   import seller from '../components/table/seller';
+  import home from '../components/home';
   import echarts from '../components/echarts/echarts';
   import opinion from '../components/echarts/opinion';
   import baseform from '../components/baseform/baseform';
@@ -20,6 +21,12 @@
     {
       path: '/login',
       component: login,
+      name: '',
+      hidden: true
+    },
+    {
+      path: '/home',
+      component: home,
       name: '',
       hidden: true
     },
@@ -43,7 +50,7 @@
       path: '/',
       component: Hello,
       name: '表单',
-      iconCls: 'el-icon-message',
+      iconCls: 'el-icon-document',
       children: [
           { path: '/baseform', component: baseform, name: '基本表单' }
       ]
@@ -52,7 +59,7 @@
       path: '/',
       component: Hello,
       name: '订单中心',
-      iconCls: 'el-icon-message',
+      iconCls: 'el-icon-warning',
       children: [
           { path: '/cart', component: cart, name: '购物车' },
           { path: '/seller', component: seller, name: 'vuex' }
@@ -62,7 +69,7 @@
         path: '/',
         component: Hello,
         name: '订单统计',
-        iconCls: 'fa fa-bar-chart',
+        iconCls: 'el-icon-star-on',
         children: [
             { path: '/echarts', name: '柱状图', component: echarts },
             { path: '/opinion', name: '子父组件通信', component: opinion }
@@ -72,7 +79,7 @@
         path: '/',
         component: Hello,
         name: '活动管理',
-        iconCls: 'fa fa-address-card',
+        iconCls: 'el-icon-edit',
         leaf: true,
         children:[
           { path: 'steps', component: steps, name: '导航三' },
@@ -83,7 +90,7 @@
         path: '/',
         component: Hello,
         name: '文件上传',
-        iconCls: 'fa fa-bar-chart',
+        iconCls: 'el-icon-upload',
         children: [
             { path: '/upload', name: '图片上传', component: upload },
         ]
