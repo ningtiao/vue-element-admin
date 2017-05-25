@@ -17,8 +17,7 @@ vue2 + vuex + vue-router+ mock.js + webpack + ES6/7 + less + element-ui
   使用Mock.js进行独立于后端的前端开发
   thanks http://mockjs.com/
 
-## 说明
-
+## 说明   目前这个项目还在维护中，后面还会继续增加新功能！！
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
