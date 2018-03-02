@@ -36,12 +36,12 @@
       <el-table-column prop="county" label="地址" min-width="180">
       </el-table-column>
       <el-table-column label="按钮">
-        <template scope="scope">
+        <template slot-scope="scope">
           <el-button type="success">成功按钮</el-button>
         </template>
       </el-table-column>
       <el-table-column label="操作">
-        <template scope="scope">
+        <template slot-scope="scope">
           <el-button
             size="small"
             @click="handleEdit(scope.$index, scope.row)">编辑</el-button>

@@ -1,83 +1,142 @@
 <template>
-    <div class="login-wrap">
-      <el-form  label-position="left" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm login-container">
-        <h3 class="title">用户登录</h3>
-        <el-form-item prop="username">
-          <el-input type="text" v-model="ruleForm.username"  auto-complete="off" placeholder="账号"></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input type="password"  v-model="ruleForm.password" auto-complete="off" placeholder="密码"></el-input>
-        </el-form-item>
-        <el-checkbox class="remember">记住密码</el-checkbox>
-        <el-form-item style="width:100%;">
-          <el-button type="primary" style="width:100%;"  @click="submitForm('ruleForm')" :loading="logining">登录</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
+  <div class="login-container">
+    <el-form class="login-form" autoComplete="on"  label-position="left">
+      <div class="title-container">
+        <h3 class="title">elm后台管理系统</h3>
+        <lang-select class="set-language"></lang-select>
+      </div>
+      <el-form-item prop="username">
+        <span class="svg-container svg-container_login">
+          <svg-icon icon-class="user" />
+        </span>
+        <el-input name="username" type="text" vautoComplete="on" placeholder="username" />
+      </el-form-item>
+
+      <el-form-item prop="password">
+        <span class="svg-container">
+          <svg-icon icon-class="password" />
+        </span>
+        <el-input name="password"  autoComplete="on" placeholder="password" />
+        <span class="show-pwd" >
+          <svg-icon icon-class="eye" />
+        </span>
+      </el-form-item>
+
+      <el-button type="primary" style="width:100%;margin-bottom:30px;">登录</el-button>
+    </el-form>
+
+
+  </div>
 </template>
 
-<script type="text/ecmascript-6">
-import { requestLogin } from '../api/api';
-const ERR_OK = 0;
+<script>
+
 export default {
-  data() {
-    return {
-      logining: false, //定义loading默认为false
-      ruleForm: {            //username和password默认为空
-        username: '',
-        password:''
-      },
-      rules: {          //rules前端验证
-          username: [
-            { required: true, message: '请输入账号', trigger: 'blur' },
-          ],
-          password: [
-            { required: true, message: '请输入密码', trigger: 'blur' },
-          ]        
-      }
-    }
-  },
-  methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            this.logining = true;
-            setTimeout(() => {
-              this.logining = false;
-              this.$router.push({ path: '/table' });//如果请求成功就让他3秒跳转路由
-            }, 2000);
-          } else {
-            this.$ruleForm.error({
-              title: '错误',
-              message: '请输入正确的用户名密码',
-              offset: 100
-            });
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-  }
+
 }
 </script>
 
-<style lang="less" scoped>
+<style rel="stylesheet/scss" lang="scss">
+$bg:#2d3a4b;
+$light_gray:#eee;
+
+/* reset element-ui css */
 .login-container {
-    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.06);
+  .el-input {
+    display: inline-block;
+    height: 47px;
+    width: 85%;
+    input {
+      background: transparent;
+      border: 0px;
+      -webkit-appearance: none;
+      border-radius: 0px;
+      padding: 12px 5px 12px 15px;
+      color: $light_gray;
+      height: 47px;
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
+        -webkit-text-fill-color: #fff !important;
+      }
+    }
+  }
+  .el-form-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    margin: 180px auto;
-    width: 350px;
-    padding: 30px 35px 15px 35px;
-    background: #fff;
-    border: 1px solid #eaeaea;
-    box-shadow: 0 0 25px #cac6c6;
+    color: #454545;
+  }
 }
+</style>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+$bg:#2d3a4b;
+$dark_gray:#889aa4;
+$light_gray:#eee;
+
+.login-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: $bg;
+  .login-form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 400px;
+    padding: 35px 35px 15px 35px;
+    margin: 120px auto;
+  }
+  .tips {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+    span {
+      &:first-of-type {
+        margin-right: 16px;
+      }
+    }
+  }
+  .svg-container {
+    padding: 6px 5px 6px 15px;
+    color: $dark_gray;
+    vertical-align: middle;
+    width: 30px;
+    display: inline-block;
+    &_login {
+      font-size: 20px;
+    }
+  }
+  .title-container {
+    position: relative;
     .title {
+      font-size: 26px;
+      font-weight: 400;
+      color: $light_gray;
       margin: 0px auto 40px auto;
       text-align: center;
-      color: #505458;
+      font-weight: bold;
     }
-    .remember{
-      margin: 0px 0px 35px 0px;
+    .set-language {
+      color: #fff;
+      position: absolute;
+      top: 5px;
+      right: 0px;
     }
+  }
+  .show-pwd {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    font-size: 16px;
+    color: $dark_gray;
+    cursor: pointer;
+    user-select: none;
+  }
+  .thirdparty-button {
+    position: absolute;
+    right: 35px;
+    bottom: 28px;
+  }
+}
 </style>

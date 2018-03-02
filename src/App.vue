@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="fillcontain">
       <router-view :seller="seller"></router-view>
   </div>
 </template>
@@ -23,23 +23,6 @@
   }
  };
 </script>
-
-<style lang="stylus" rel="stylesheet/stylus">
-@import "./common/stylus/mixin.styl"
-#app
-  .tab
-   display: flex
-   width: 100%
-   height:40px
-   line-height: 40px
-   border-1px(rgba(7, 17, 27, 0.1))
-   .tab-item
-    flex:1
-    text-align:center
-    & > a
-     display:block
-     color:rgb(77,85,93)
-     font-size:14px
-    & .active
-      color:#f01414
-</style>  
+<style lang="less">
+	@import './style/common';
+</style>
