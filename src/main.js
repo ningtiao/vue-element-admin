@@ -9,7 +9,7 @@ import ElementUI from 'element-ui';
 import Vuex from 'vuex';
 import routes from './router/index';
 import store from './store/store';
-
+import './icons' // icon
 import './common/stylus/index.styl';
 import 'element-ui/lib/theme-default/index.css';
 Vue.config.productionTip = false;

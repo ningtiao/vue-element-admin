@@ -30,13 +30,16 @@
 </template>
 
 <script>
-
+import LangSelect from './LangSelect'
+import '../icons/svg/user.svg'
 export default {
-
+  components: { LangSelect },
+  name: 'login',
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+
 $bg:#2d3a4b;
 $light_gray:#eee;
 

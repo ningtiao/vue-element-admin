@@ -11,6 +11,7 @@
   import steps from '../components/steps/steps';
   import steps2 from '../components/steps/steps2';
   import upload from '../components/upload/upload';
+  import icons from '../views/svg-icons/index';
   const routes = [
     {
       path: '/',
@@ -27,6 +28,12 @@
     {
       path: '/home',
       component: home,
+      name: '',
+      hidden: true
+    },
+    {
+      path: '/icon',
+      component: icons,
       name: '',
       hidden: true
     },
