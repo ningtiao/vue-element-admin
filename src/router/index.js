@@ -26,7 +26,7 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: '首页', icon: 'example' },
     children: [
       {
         path: 'table',
@@ -55,7 +55,18 @@ export const constantRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/icon',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: '图标',
+        component: () => import('@/views/svg-icon/index'),
+        meta: { title: 'Form', icon: 'form' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
