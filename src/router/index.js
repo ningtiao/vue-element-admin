@@ -51,7 +51,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '讲师管理', icon: 'form' }
       }
     ]
   },
@@ -63,7 +63,7 @@ export const constantRouterMap = [
         path: 'index',
         name: '图标',
         component: () => import('@/views/svg-icon/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '图标', icon: 'form' }
       }
     ]
   },
