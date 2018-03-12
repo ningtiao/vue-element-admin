@@ -15,8 +15,8 @@
       </el-form>
     </el-col>
     <!--列表-->
-    <el-table :data="list" v-loading="listLoading" border fit highlight-current-row element-loading-text="拼命加载中" style="width: 100%;">
-      <el-table-column type="index">
+    <el-table :data="list" v-loading="listLoading" border element-loading-text="拼命加载中" style="width: 100%;">
+      <el-table-column prop="uid">
       </el-table-column>
       <el-table-column prop="cname" label="姓名">
       </el-table-column>
@@ -32,7 +32,7 @@
       </el-table-column>
       <el-table-column prop="operation" label="操作 ">
         <template slot-scope="scope" >
-         <el-button size="small">编辑</el-button>
+         <el-button size="small" type="primary">编辑</el-button>
           <el-button size="small" type="danger">删除</el-button>
         </template>
       </el-table-column>
@@ -40,9 +40,11 @@
     <!--工具条-->
     <el-col :span="24" class="toolbar">
       <el-pagination layout="prev,total,pager, next"
-                     :page-size="10"
+                      background
+                     :page-size="20"
                      @size-change="handleSizeChange"
                      :total="total"
+                      @current-change="handleCurrentChange"
                      style="text-align:center;">
       </el-pagination>
     </el-col>
@@ -51,7 +53,6 @@
 
 <script>
 import { getList } from '@/api/table'
-
 export default {
   data() {
     return {
@@ -95,12 +96,20 @@ export default {
     fetchData() {
       this.listLoading = true
       getList(this.listQuery).then(response => {
-        this.list = response.data
-        this.total = response.totalRow
+        const limit = 20
+        const pageList = response.data.filter((item, index) => index < limit * this.page && index >= limit * (this.page - 1))
+        console.log(pageList)
+        this.total = response.data.length
+        this.list = pageList
         this.listLoading = false
       })
     },
     handleSizeChange(val) {
+      this.page = val
+      console.log(this.page)
+      this.fetchData()
+    },
+    handleCurrentChange(val) {
       this.page = val
       console.log(this.page)
       this.fetchData()
