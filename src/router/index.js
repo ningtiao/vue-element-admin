@@ -39,6 +39,12 @@ export const constantRouterMap = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
+      },
+      {
+        path: 'fullcalendar',
+        name: 'Fullcalendar',
+        component: () => import('@/views/fullcalendar/fullcalendar'),
+        meta: { title: 'fullcalendar', icon: 'tree' }
       }
     ]
   },
