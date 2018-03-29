@@ -18,7 +18,7 @@
 
 这是我司的项目首页 效果如下：
 
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/xker.git)
+![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/xker.gif)
 ![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/topic.png)
 ![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/schedule.png)
 
