@@ -41,20 +41,29 @@
       </el-form>
     </el-col>
 
-    <WeekDetail ref="calendar"></WeekDetail>
+    <div v-if="type == 1">
+      <Month> </Month>
+    </div>
+
+    <div v-if="type == 2">
+      <WeekDetail></WeekDetail>
+    </div>
 </div>
 </template>
 <script>
 import WeekDetail from '@/components/week_detail/week_detail'
+import Month from '@/components/month/month'
 export default {
-  name: "month",
+  name: 'month',
   data() {
     return {
       list: null,
       listLoading: true,
       total: 0,
       page: 1,
-      type:'1',
+      type: '1',
+      isShowMonth: true,
+      isShowWeek: false,
       status: [
         {
           statusId: 1,
@@ -85,9 +94,10 @@ export default {
     }
   },
   components: {
-      WeekDetail
+    WeekDetail,
+    Month
   }
-};
+}
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
 

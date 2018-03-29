@@ -7,3 +7,11 @@ export function getList(params) {
     params
   })
 }
+
+export function getMonth(params) {
+  return request({
+    url: '/schedule/month',
+    method: 'post',
+    params
+  })
+}

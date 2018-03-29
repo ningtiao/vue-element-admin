@@ -32,7 +32,7 @@ export const constantRouterMap = [
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '表格', icon: 'table' }
       },
       {
         path: 'tree',
@@ -44,7 +44,7 @@ export const constantRouterMap = [
         path: 'fullcalendar',
         name: 'Fullcalendar',
         component: () => import('@/views/fullcalendar/fullcalendar'),
-        meta: { title: 'fullcalendar', icon: 'tree' }
+        meta: { title: '日历', icon: 'tree' }
       }
     ]
   },
