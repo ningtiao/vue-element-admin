@@ -39,7 +39,7 @@ npm install
 
 如果 npm  install  出现问题  建议安装淘宝镜像
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:9528
 npm run dev
 
 # build for production with minification
