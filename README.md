@@ -1,6 +1,6 @@
 # vue-element-admin
 
-技术栈 vue2.0 + elementUI +vuex + easy-mock + vue-router + es6
+技术栈 vue2.0 + elementUI +vuex + easy-mock + vue-router + es6         如果对你有帮助 请点右上角star，谢谢
 
 
 # 概述
@@ -25,7 +25,6 @@
 在线体验功能：后续会把这个项目上线 敬请期待！
 # 本项目部分截图预览
 
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/index.png)
 ![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/login.png)
 ![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/table.png)
 
