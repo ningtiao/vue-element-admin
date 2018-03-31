@@ -23,6 +23,7 @@
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
+    "screenfull": "^3.3.2",
     "vue": "2.5.10",
     "vue-full-calendar": "^2.5.2",
     "vue-router": "3.0.1",
