@@ -12,6 +12,12 @@
 
 ![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/easy-mock.png)
 
+# 基于Vue2.0实现后台系统权限控制
+本项目目前设置了两种管理员 1、admin 2、editor
+每种类型的人看到的侧边栏不一样，可以进行的操作也不尽相同，于是就需要程序处理一下各个权限问题。
+
+关于这个权限的控制 请看这边文章,说的都比较详情  [手摸手，带你用vue撸后台 系列二(登录权限篇)](https://juejin.im/post/591aa14f570c35006961acac)
+
 # 参考文档
 
 请看这位大神：https://segmentfault.com/a/1190000009506097
