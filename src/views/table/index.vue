@@ -23,18 +23,18 @@
           </el-select>
         </el-form-item>
                 <el-form-item >
-          <el-input placeholder="账号"></el-input>
+          <el-input placeholder="账号" v-model="searchName"></el-input>
         </el-form-item>
         <el-form-item>
-           <el-button type="primary"><i class="el-icon-search"></i>搜索</el-button>
+           <el-button type="primary" @click="doFilter()"><i class="el-icon-search"></i>搜索</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">新增</el-button>
+          <el-button type="primary" >新增</el-button>
         </el-form-item>
       </el-form>
     </el-col>
     <!--列表-->
-    <el-table :data="list" v-loading="listLoading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table :data="tableList" v-loading="listLoading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column prop="uid" label="序号">
       </el-table-column>
       <el-table-column prop="cname" label="姓名">
@@ -84,10 +84,11 @@ import { getList } from '@/api/table'
 export default {
   data() {
     return {
-      list: null,
+      tableList: [],
       listLoading: true,
       total: 0,
       page: 1,
+      pageSize: 10,
       status: [
         {
           statusId: 1,
@@ -114,7 +115,9 @@ export default {
           value: '选项5',
           label: '北京烤鸭'
         }],
-      value: ''
+      value: '',
+      searchName: '',
+      filterTableDataEnd: []
     }
   },
   created() {
@@ -137,9 +140,35 @@ export default {
         const pageList = response.data.filter((item, index) => index < limit * this.page && index >= limit * (this.page - 1))
         console.log(pageList)
         this.total = response.data.length
-        this.list = pageList
+        this.tableList = pageList
         this.listLoading = false
       })
+    },
+    doFilter() {
+      if (this.searchName === '') {
+        this.fetchData()
+        // this.$message.warning('查询条件不能为空！')
+        return
+      }
+      console.log(this.searchName)
+      // 每次手动将数据置空,因为会出现多次点击搜索情况
+      this.filterTableDataEnd = []
+      this.tableList.forEach((value, index) => {
+        if (value.cname) {
+          if (value.cname.indexOf(this.searchName) >= 0) {
+            this.filterTableDataEnd.push(value)
+            console.log(this.filterTableDataEnd)
+          }
+        }
+      })
+      // 页面数据改变重新统计数据数量和当前页
+      this.page = 1
+      this.total = this.filterTableDataEnd.length
+      // 渲染表格,根据值
+      this.currentChangePage(this.filterTableDataEnd)
+    },
+    clickfun(e) {
+      console.log(e.target.innerText)
     },
     handleSizeChange(val) {
       this.page = val
@@ -150,6 +179,16 @@ export default {
       this.page = val
       console.log(this.page)
       this.fetchData()
+    },
+    currentChangePage(list) {
+      let from = (this.page - 1) * this.pageSize
+      const to = this.page * this.pageSize
+      this.tableList = []
+      for (; from < to; from++) {
+        if (list[from]) {
+          this.tableList.push(list[from])
+        }
+      }
     }
   }
 }
