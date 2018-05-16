@@ -1,5 +1,5 @@
 <template>
-  <div :class="className" :id="id" :style="{height:height,width:width}" ref="myEchart">
+  <div :class="className" :style="{height:height,width:width}" ref="myEchart">
   </div>
 </template>
 <script>

@@ -6,7 +6,7 @@
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">New Visits</div>
+          <div class="card-panel-text">访问量</div>
           <count-to class="card-panel-num" :startVal="0" :endVal="102400" :duration="2600"></count-to>
         </div>
       </div>
@@ -17,7 +17,7 @@
           <svg-icon icon-class="message" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">Messages</div>
+          <div class="card-panel-text">信息</div>
           <count-to class="card-panel-num" :startVal="0" :endVal="81212" :duration="3000"></count-to>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <svg-icon icon-class="money" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">Purchases</div>
+          <div class="card-panel-text">购买</div>
           <count-to class="card-panel-num" :startVal="0" :endVal="9280" :duration="3200"></count-to>
         </div>
       </div>
@@ -39,7 +39,7 @@
           <svg-icon icon-class="shoppingCard" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">Shoppings</div>
+          <div class="card-panel-text">订单</div>
           <count-to class="card-panel-num" :startVal="0" :endVal="13600" :duration="3600"></count-to>
         </div>
       </div>
