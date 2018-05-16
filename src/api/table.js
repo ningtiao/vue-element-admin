@@ -15,3 +15,11 @@ export function getMonth(params) {
     params
   })
 }
+
+export function updateArticle(data) {
+  return request({
+    url: '/article/update',
+    method: 'post',
+    data
+  })
+}

@@ -51,41 +51,63 @@
       </el-table-column>
       <el-table-column prop="operation" label="操作 ">
         <template slot-scope="scope" >
-         <el-button size="small" type="primary">编辑</el-button>
+         <el-button size="small" type="primary"  @click="handleUpdate(scope.row)">编辑</el-button>
           <el-button size="small" type="danger">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
     <!--工具条-->
-    <!-- <el-col :span="24" class="toolbar"> -->
-      <el-pagination layout="total, prev, pager, next"
-                      background
-                     :page-size="10"
-                     @size-change="handleSizeChange"
-                     :total="total"
-                      @current-change="handleCurrentChange"
-                     style="text-align:center;">
-      </el-pagination>
-      <!-- <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage4"
-        :page-sizes="[10, 20, 30]"
-        :page-size="20"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="total">
-      </el-pagination> -->
-    <!-- </el-col> -->
+    <el-pagination layout="total, prev, pager, next"
+                    background
+                    :page-size="10"
+                    @size-change="handleSizeChange"
+                    :total="total"
+                    @current-change="handleCurrentChange"
+                    style="text-align:center;">
+    </el-pagination>
+
+
+    <!-- 新增编辑院校 -->
+    <el-dialog title="Edit" :visible.sync="isShowEditVisible">
+      <el-form label-width="80px" :model="temp" ref="dataForm">
+        <el-form-item label="姓名" prop="cname">
+          <el-input v-model="temp.cname"></el-input>
+        </el-form-item>
+        <el-form-item label="时间" prop="date">
+          <el-input v-model="temp.date"></el-input>
+        </el-form-item>
+        <el-form-item label="状态" v-model="temp.status">
+         <el-select v-model="temp.status" placeholder="启用状态">
+            <el-option v-for="item in status"
+                       :label="item.label"
+                       :value="item.statusId"
+                       :key="item.statusId"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="isShowEditVisible = false">取消</el-button>
+        <el-button type="primary" :loading="listLoading" @click="updateData" class="title1">确定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { getList } from '@/api/table'
+import { getList, updateArticle } from '@/api/table'
 export default {
   data() {
     return {
       tableList: [],
       listLoading: true,
+      isShowEditVisible: false,
+      temp: {
+        uid: '',
+        cname: '',
+        date: '',
+        status: ''
+      },
       total: 0,
       page: 1,
       pageSize: 10,
@@ -169,6 +191,31 @@ export default {
     },
     clickfun(e) {
       console.log(e.target.innerText)
+    },
+    handleUpdate(row) {
+      this.isShowEditVisible = true
+      this.temp = Object.assign({}, row)
+      console.log(row)
+    },
+    updateData() {
+      const tempData = Object.assign({}, this.temp)
+      console.log(tempData)
+      updateArticle(tempData).then(() => {
+        for (const v of this.tableList) {
+          if (v.uid === this.temp.uid) {
+            const index = this.tableList.indexOf(v)
+            this.tableList.splice(index, 1, this.temp)
+            break
+          }
+        }
+        this.isShowEditVisible = false
+        this.$notify({
+          title: '成功',
+          message: '更新成功',
+          type: 'success',
+          duration: 2000
+        })
+      })
     },
     handleSizeChange(val) {
       this.page = val

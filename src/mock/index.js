@@ -1,5 +1,8 @@
 import Mock from 'mockjs'
 import loginAPI from './login'
+import articleAPI from './article'
+import remoteSearchAPI from './remoteSearch'
+import transactionAPI from './transaction'
 // Mock.setup({
 //   timeout: '350-600'
 // })
