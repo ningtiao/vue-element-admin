@@ -50,13 +50,13 @@ export const constantRouterMap = [
     path: '/form',
     name: 'form',
     component: Layout,
-    meta: { title: '表单', icon: 'example' },
+    meta: { icon: 'example' },
     children: [
       {
-        path: 'tree',
+        path: 'index',
         name: 'Form11111',
         component: () => import('@/views/form/index'),
-        meta: { title: '讲师管理', icon: 'form' }
+        meta: { title: '表单', icon: 'form' }
       }
     ]
   },
