@@ -47,16 +47,47 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/form',
-    name: 'form',
+    path: '/tab',
+    name: 'tab',
     component: Layout,
     meta: { icon: 'example' },
     children: [
       {
         path: 'index',
-        name: 'Form11111',
+        name: 'tab',
+        component: () => import('@/views/tab/index'),
+        meta: { title: 'tab选项卡', icon: 'form' }
+      }
+    ]
+  },
+  // 表单
+  {
+    path: '/form',
+    component: Layout,
+    redirect: '/table/BaseForm',
+    name: 'form',
+    meta: {
+      title: 'form',
+      icon: 'form'
+    },
+    children: [
+      {
+        path: 'Form',
+        name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: '表单', icon: 'form' }
+        meta: { title: 'Form', icon: 'form' }
+      },
+      {
+        path: 'quillEditor',
+        name: 'quillEditor',
+        component: () => import('@/views/form/quillEditor'),
+        meta: { title: 'quillEditor', icon: 'form' }
+      },
+      {
+        path: 'tinymce',
+        name: 'tinymce',
+        component: () => import('@/views/form/tinymce'),
+        meta: { title: 'tinymce', icon: 'form' }
       }
     ]
   },
