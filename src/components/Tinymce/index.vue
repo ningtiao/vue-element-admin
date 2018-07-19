@@ -46,7 +46,7 @@ export default {
         language: 'zh_CN',
         body_class: 'panel-body ',
         object_resizing: false,
-        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools  contextmenu colorpicker textpattern help',
+        plugins: 'print, preview, fullpage, advlist, autolink, code, paste, textcolor, colorpicker, fullscreen, link,lists, media, wordcount, imagetools',
         toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
         link_title: false,
         init_instance_callback: editor => {
