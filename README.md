@@ -29,10 +29,6 @@
 
 这是我司的项目首页 效果如下：
 
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/xker.gif)
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/topic.png)
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/schedule.png)
-
 在线体验功能：后续会把这个项目上线 敬请期待！
 # 本项目部分截图预览
 
