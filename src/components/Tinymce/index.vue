@@ -7,7 +7,7 @@
 </template>
 
 <script>
-
+import '../../../static/tinymce/langs/zh_CN.js'
 export default {
   name: 'tinymce',
   props: {
@@ -43,7 +43,6 @@ export default {
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
         height: 300,
-        language_url: '/static/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
         body_class: 'panel-body ',
         object_resizing: false,
