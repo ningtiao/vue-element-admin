@@ -24,13 +24,13 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '表格', icon: 'example' },
+    meta: { title: 'Table', icon: 'table' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: '综合table', icon: 'table' }
+        meta: { title: 'complex-table', icon: 'table' }
       },
       {
         path: 'fullcalendar',
@@ -47,10 +47,10 @@ export const constantRouterMap = [
     meta: { icon: 'example' },
     children: [
       {
-        path: 'index',
-        name: 'tab',
+        path: 'Tabs',
+        name: 'Tabs',
         component: () => import('@/views/tab/index'),
-        meta: { title: 'tab选项卡', icon: 'form' }
+        meta: { title: 'Tabs', icon: 'form' }
       }
     ]
   },
@@ -133,7 +133,7 @@ export const asyncRouterMap = [
     redirect: '/components/dragKanban',
     name: 'Components',
     meta: {
-      title: '组件',
+      title: 'Components',
       icon: 'component'
     },
     children: [
