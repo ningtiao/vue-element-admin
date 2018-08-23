@@ -33,12 +33,6 @@ export const constantRouterMap = [
         meta: { title: '表格', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      },
-      {
         path: 'fullcalendar',
         name: 'Fullcalendar',
         component: () => import('@/views/fullcalendar/fullcalendar'),
@@ -67,7 +61,7 @@ export const constantRouterMap = [
     redirect: '/table/BaseForm',
     name: 'form',
     meta: {
-      title: 'form',
+      title: '表单',
       icon: 'form'
     },
     children: [
@@ -75,7 +69,7 @@ export const constantRouterMap = [
         path: 'Form',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: 'form表单', icon: 'form' }
       },
       {
         path: 'quillEditor',
@@ -90,8 +84,7 @@ export const constantRouterMap = [
         meta: { title: 'tinymce', icon: 'form' }
       }
     ]
-  },
-  { path: '*', redirect: '/404', hidden: true }
+  }
 ]
 
 export default new Router({
@@ -112,6 +105,45 @@ export const asyncRouterMap = [
         name: '图标',
         component: () => import('@/views/svg-icon/index'),
         meta: { title: '图标', icon: 'form', roles: ['admin'] }
+      }
+    ]
+  },
+  {
+    path: '/tree',
+    component: Layout,
+    name: 'Tree',
+    meta: { roles: ['admin'] },
+    children: [
+      {
+        path: 'index',
+        name: '图标',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '树形菜单', icon: 'tree' }
+      }
+    ]
+  },
+  // 组件
+  {
+    path: '/components',
+    component: Layout,
+    redirect: '/components/dragKanban',
+    name: 'Components',
+    meta: {
+      title: '组件',
+      icon: 'component'
+    },
+    children: [
+      {
+        path: 'componentsmixin',
+        name: 'mixin',
+        component: () => import('@/views/components/backToTop'),
+        meta: { title: '返回顶部' }
+      },
+      {
+        path: 'mixin',
+        name: 'componentMixin',
+        component: () => import('@/views/components/mixin'),
+        meta: { title: 'componentMixin' }
       }
     ]
   },
