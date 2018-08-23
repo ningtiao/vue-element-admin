@@ -1,10 +1,12 @@
 @import './variables.scss';
 @import './mixin.scss';
+@import './btn.scss';
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
 
 body {
+  height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -12,9 +14,13 @@ body {
 }
 
 html {
+  height: 100%;
   box-sizing: border-box;
 }
 
+#app {
+  height: 100%;
+}
 *,
 *:before,
 *:after {

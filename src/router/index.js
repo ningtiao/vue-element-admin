@@ -24,13 +24,13 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '系统管理', icon: 'example' },
+    meta: { title: '表格', icon: 'example' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: '表格', icon: 'table' }
+        meta: { title: '综合table', icon: 'table' }
       },
       {
         path: 'fullcalendar',
@@ -61,7 +61,7 @@ export const constantRouterMap = [
     redirect: '/table/BaseForm',
     name: 'form',
     meta: {
-      title: '表单',
+      title: 'form',
       icon: 'form'
     },
     children: [
@@ -69,7 +69,7 @@ export const constantRouterMap = [
         path: 'Form',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'form表单', icon: 'form' }
+        meta: { title: 'BaseForm', icon: 'form' }
       },
       {
         path: 'quillEditor',
@@ -101,24 +101,28 @@ export const asyncRouterMap = [
     meta: { roles: ['admin'] },
     children: [
       {
-        path: 'index',
-        name: '图标',
+        path: 'iconIndex',
+        name: 'iconIndex',
         component: () => import('@/views/svg-icon/index'),
-        meta: { title: '图标', icon: 'form', roles: ['admin'] }
+        meta: { title: 'svgicons', icon: 'icon', roles: ['admin'] }
       }
     ]
   },
+  // 树形组件
   {
-    path: '/tree',
+    path: '/treeMen',
     component: Layout,
-    name: 'Tree',
-    meta: { roles: ['admin'] },
+    redirect: 'noredirect',
+    meta: {
+      title: 'treeMen',
+      icon: 'icon'
+    },
     children: [
       {
-        path: 'index',
-        name: '图标',
+        path: 'treeMen',
+        name: 'treeMen-demo',
         component: () => import('@/views/tree/index'),
-        meta: { title: '树形菜单', icon: 'tree' }
+        meta: { title: 'treeMen', icon: 'icon' }
       }
     ]
   },
@@ -144,6 +148,19 @@ export const asyncRouterMap = [
         name: 'componentMixin',
         component: () => import('@/views/components/mixin'),
         meta: { title: 'componentMixin' }
+      }
+    ]
+  },
+  {
+    path: '/i18n-demo',
+    component: Layout,
+    redirect: 'i18n-demo',
+    children: [
+      {
+        path: 'indexLang',
+        name: 'indexLang',
+        component: () => import('@/views/i18n-demo/indexLang'),
+        meta: { title: 'i18n', icon: 'international' }
       }
     ]
   },
