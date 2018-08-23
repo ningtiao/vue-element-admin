@@ -30,13 +30,13 @@ export const constantRouterMap = [
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'complex-table', icon: 'table' }
+        meta: { title: 'complexTable', icon: 'table' }
       },
       {
         path: 'fullcalendar',
         name: 'Fullcalendar',
         component: () => import('@/views/fullcalendar/fullcalendar'),
-        meta: { title: '日历', icon: 'tree' }
+        meta: { title: 'calendar', icon: 'tree' }
       }
     ]
   },
@@ -97,7 +97,7 @@ export const asyncRouterMap = [
   {
     path: '/icon',
     component: Layout,
-    name: '图标',
+    name: 'icons',
     meta: { roles: ['admin'] },
     children: [
       {
@@ -141,7 +141,7 @@ export const asyncRouterMap = [
         path: 'componentsmixin',
         name: 'mixin',
         component: () => import('@/views/components/backToTop'),
-        meta: { title: '返回顶部' }
+        meta: { title: 'backToTop' }
       },
       {
         path: 'mixin',
