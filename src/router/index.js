@@ -30,13 +30,13 @@ export const constantRouterMap = [
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'complexTable', icon: 'table' }
+        meta: { title: 'complexTable' }
       },
       {
         path: 'fullcalendar',
         name: 'Fullcalendar',
         component: () => import('@/views/fullcalendar/fullcalendar'),
-        meta: { title: 'calendar', icon: 'tree' }
+        meta: { title: 'calendar' }
       }
     ]
   },
@@ -50,7 +50,7 @@ export const constantRouterMap = [
         path: 'Tabs',
         name: 'Tabs',
         component: () => import('@/views/tab/index'),
-        meta: { title: 'Tabs', icon: 'form' }
+        meta: { title: 'Tabs', icon: 'tab' }
       }
     ]
   },
@@ -69,19 +69,19 @@ export const constantRouterMap = [
         path: 'Form',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'BaseForm', icon: 'form' }
+        meta: { title: 'BaseForm' }
       },
       {
         path: 'quillEditor',
         name: 'quillEditor',
         component: () => import('@/views/form/quillEditor'),
-        meta: { title: 'quillEditor', icon: 'form' }
+        meta: { title: 'quillEditor' }
       },
       {
         path: 'tinymce',
         name: 'tinymce',
         component: () => import('@/views/form/tinymce'),
-        meta: { title: 'tinymce', icon: 'form' }
+        meta: { title: 'tinymce' }
       }
     ]
   }
@@ -115,14 +115,14 @@ export const asyncRouterMap = [
     redirect: 'noredirect',
     meta: {
       title: 'treeMen',
-      icon: 'icon'
+      icon: 'TreeMean'
     },
     children: [
       {
         path: 'treeMen',
         name: 'treeMen-demo',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'treeMen', icon: 'icon' }
+        meta: { title: 'treeMen', icon: 'TreeMean' }
       }
     ]
   },
@@ -148,6 +148,24 @@ export const asyncRouterMap = [
         name: 'componentMixin',
         component: () => import('@/views/components/mixin'),
         meta: { title: 'componentMixin' }
+      }
+    ]
+  },
+  {
+    path: '/excel',
+    component: Layout,
+    redirect: '/excel/exportExcel',
+    name: 'excel',
+    meta: {
+      title: 'excel',
+      icon: 'excel'
+    },
+    children: [
+      {
+        path: 'exportExcel',
+        name: 'exportExcel',
+        component: () => import('@/views/excel/exportExcel'),
+        meta: { title: 'exportExcel', icon: 'excel' }
       }
     ]
   },

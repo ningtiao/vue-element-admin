@@ -36,6 +36,7 @@ export default {
     componentMixin: 'componentMixin',
     markdown: 'Markdown',
     treeMen: '树形菜单',
+    quillEditor: '富文本编辑器',
     backToTop: '返回顶部',
     dashboard: '首页',
     DiscountFigure: '折线图',
@@ -58,5 +59,10 @@ export default {
   permission: {
     roles: '你的权限',
     switchRoles: '切换权限'
+  },
+  excel: {
+    export: '导出',
+    selectedExport: '导出已选择项',
+    placeholder: '请输入文件名(默认excel-list)'
   }
 }

@@ -26,6 +26,8 @@ export default {
     disabled: 'disabled',
     customtrigger: 'custom-trigger',
     form: 'form',
+    quillEditor: 'quillEditor',
+    calendar: 'calendar',
     Tabs: 'Tabs',
     Table: 'Table',
     Icons: 'Icons',
@@ -57,5 +59,10 @@ export default {
     page404: '404',
     i18n: 'i18n',
     svgicons: 'svgicons'
+  },
+  excel: {
+    export: 'Export',
+    selectedExport: 'Export selected items',
+    placeholder: 'Please enter the file name(default excel-list)'
   }
 }

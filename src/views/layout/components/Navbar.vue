@@ -7,7 +7,7 @@
       </div>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+          <img class="user-avatar" :src="logo">
           <i class="el-icon-caret-bottom"></i>
         </div>
         <el-dropdown-menu class="user-dropdown" slot="dropdown">
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import logo from '@/assets/images/logo.png'
 import { mapGetters } from 'vuex'
 import nxTopLock from '@/components/nx-top-lock'
 import Breadcrumb from '@/components/Breadcrumb'
@@ -34,6 +35,11 @@ export default {
     Breadcrumb,
     Hamburger,
     nxTopLock
+  },
+  data() {
+    return {
+      logo
+    }
   },
   computed: {
     ...mapGetters([

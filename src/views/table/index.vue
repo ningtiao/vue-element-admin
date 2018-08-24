@@ -3,16 +3,6 @@
     <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
       <el-form :inline="true">
         <el-form-item>
-          <el-select v-model="value" clearable placeholder="所属机构">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item>
           <el-select v-model="value" clearable placeholder="状态">
               <el-option
                 v-for="item in status"
@@ -23,7 +13,7 @@
           </el-select>
         </el-form-item>
                 <el-form-item >
-          <el-input placeholder="账号" v-model="searchName"></el-input>
+          <el-input placeholder="姓名" v-model="searchName"></el-input>
         </el-form-item>
         <el-form-item>
            <el-button type="primary" @click="doFilter()"><i class="el-icon-search"></i>搜索</el-button>
@@ -141,23 +131,6 @@ export default {
           label: '禁用'
         }
       ],
-      options: [
-        {
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }],
       value: '',
       searchName: '',
       filterTableDataEnd: []
