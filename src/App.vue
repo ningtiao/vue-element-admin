@@ -1,7 +1,7 @@
 <template>
   <transition name="rotate-fall">
     <div id="app">
-      <router-view></router-view>
+      <router-view class="app-router-view"></router-view>
     </div>
   </transition>
 </template>
@@ -14,7 +14,7 @@ export default {
 
 </script>
 <style>
-  .app .app-router-view {
+  #app .app-router-view {
     position: absolute;
     top: 0;
     left: 0;
