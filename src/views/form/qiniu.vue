@@ -1,157 +1,94 @@
 <template>
-  <div id="app">
-    <h2>上传之前先<a class='link' href='http://jssdk.demo.qiniu.io/uptoken'>点击我</a>获取最新token把Qiniu.uploader({uptoken: 'xxx'})替换下</h2>
-    <span id='pickfiles'>上传按钮</span>
-    <div class="progress">{{progress}}</div>
+  <div class="container">
+    <div class="title"><h2>ElementUI的Upload上传图片到七牛云</h2></div>
     <el-upload
-      class="avatar-uploader"
-      action="''"
+      class="upload-demo"
+      drag
+      :action="upload_qiniu_url"
       :show-file-list="false"
       :on-success="handleAvatarSuccess"
-      :before-upload="beforeAvatarUpload">
+      :on-error="handleError"
+      :before-upload="beforeAvatarUpload"
+      :data="qiniuData">
       <img v-if="imageUrl" :src="imageUrl" class="avatar">
-      <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+      <div v-else class="el-default">
+        <i class="el-icon-upload"></i>
+        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+      </div>
+      <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过2MB</div>
     </el-upload>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
-  name: 'app',
   data() {
     return {
-      progress: '',
+      qiniuData: {
+        key: '',
+        token: ''
+      },
+      // 七牛云上传储存区域的上传域名（华东、华北、华南、北美、东南亚）
+      upload_qiniu_url: 'http://up-z0.qiniup.com',
+      // 七牛云返回储存图片的子域名
+      upload_qiniu_addr: 'http://up-z0.qiniup.com',
       imageUrl: '',
-      dataParam: ''
+      Global: {
+        dataUrl: 'http://yoursite.com'
+      }
     }
   },
-  mounted() {
-    this.initQiniu()
+  created() {
+    this.getQiniuToken()
   },
   methods: {
-    initQiniu() {
-      console.log(1)
-      /* eslint-disable */
-      Qiniu.uploader({
-        runtimes: 'html5,flash,html4',
-        browse_button: 'pickfiles',
-        flash_swf_url: 'https://cdn.bootcss.com/plupload/2.1.1/Moxie.swf',
-        chunk_size: '4mb',
-        uptoken: 'anEC5u_72gw1kZPSy3Dsq1lo_DPXyvuPDaj4ePkN:UQXiGIgZWbLbSaR2AlreHmUHGtY=:eyJkZWxldGVBZnRlckRheXMiOjEsInNjb3BlIjoianNzZGsiLCJkZWFkbGluZSI6MTUzNzAyNzAzN30=',
-        // uptoken_url: 'http://jssdk.demo.qiniu.io/uptoken',
-        domain: '7fvhtu.com1.z0.glb.clouddn.com',
-        get_new_uptoken: false,
-        // unique_names: true,
-        auto_start: true,
-        max_retries: 3,
-        filters: {
-          max_file_size: '10000mb',
-          prevent_duplicates: false
-          // Specify what files to browse for
-          // mime_types: [
-          //     {title : 'apk files', extensions : 'apk'} // 限定apk后缀上传格式上传
-          // ]
-        },
-        init: {
-          'FilesAdded': (up, files) => {
-              console.log('文件就绪', files)
-          },
-          BeforeUpload: (up, file) => {
-            console.log('上传之前', file)
-          },
-          UploadProgress: (up, file) => {
-            console.log('上传中 file',file)
-            this.progress = file.percent + '%'
-          },
-          FileUploaded: (up, file, info) => {
-            console.log('文件上传完毕')
-            console.log(info)
-          },
-          Error: (up, err, errTip) => {
-            console.log('上传失败', err)
-          },
-          Key: (up, file) => {}
-        }
+    getQiniuToken: function() {
+      const _this = this
+      _this.qiniuData.token = 'anEC5u_72gw1kZPSy3Dsq1lo_DPXyvuPDaj4ePkN:UF5dBGuGCoaVvAsm6rRbFCE-rNE=:eyJkZWxldGVBZnRlckRheXMiOjEsInNjb3BlIjoianNzZGsiLCJkZWFkbGluZSI6MTUzNzA3MjE3NH0='
+    },
+    beforeAvatarUpload: function(file) {
+      this.qiniuData.key = file.name
+      const isJPG = file.type === 'image/jpeg'
+      const isPNG = file.type === 'image/png'
+      const isLt2M = file.size / 1024 / 1024 < 2
+      if (!isJPG && !isPNG) {
+        this.$message.error('图片只能是 JPG/PNG 格式!')
+        return false
+      }
+      if (!isLt2M) {
+        this.$message.error('图片大小不能超过 2MB!')
+        return false
+      }
+    },
+    handleAvatarSuccess: function(res, file) {
+      this.imageUrl = this.upload_qiniu_addr + res.key
+      console.log(this.imageUrl)
+    },
+    handleError: function(res) {
+      this.$message({
+        message: '上传失败',
+        duration: 2000,
+        type: 'warning'
       })
-    },
-    handleAvatarSuccess(res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw);
-    },
-    update(file){        
-      let param = new FormData() // 创建form对象
-      param.append('key',file.name);// 通过append向form对象添加数据
-      param.append('chunk','0') // 添加form表单中其他数据
-      param.append('token', 'anEC5u_72gw1kZPSy3Dsq1lo_DPXyvuPDaj4ePkN:wn3ej1PbkdtA4WyWDQFcqsHxoDs=:eyJkZWxldGVBZnRlckRheXMiOjEsInNjb3BlIjoianNzZGsiLCJkZWFkbGluZSI6MTUzNzAyODU0M30=')
-      console.log(param.get('file')) // FormData私有类对象，访问不到，可以通过get判断值是否传进去
-      let config = {
-        headers:{'Content-Type':'multipart/form-data'}
-      };  //添加请求头
-      console.log(param)
-    },
-    beforeAvatarUpload(file) {
-      console.log(file)
-      let param = new FormData() // 创建form对象
-      param.append('key',file.name);// 通过append向form对象添加数据
-      param.append('token', 'HZwZZ2-pm3JThoqcnHi9U7F_3L94DhLLQ7ovbKvc:GsXoDub_Feyl-5bT7arOfOSx5FY=:eyJzY29wZSI6InN1cGVyc2hvcGVyIiwiZGVhZGxpbmUiOjE1MzcwNjM0NTh9')
-      console.log(param)
-      let config = {
-        headers:{'Content-Type':'multipart/form-data'}
-      };  //添加请求头
-      axios.post('http://7fvhtu.com1.z0.glb.clouddn.com', param, config)
-      .then(response=>{
-        console.log(response)
-      })
-      // const isJPG = file.type === 'image/jpeg';
-      // const isLt2M = file.size / 1024 / 1024 < 2;
-      // if (!isJPG) {
-      //   this.$message.error('上传头像图片只能是 JPG 格式!');
-      // }
-      // if (!isLt2M) {
-      //   this.$message.error('上传头像图片大小不能超过 2MB!');
-      // }
-      // return isJPG && isLt2M;         
     }
   }
 }
 </script>
 
-<style>
-  /* #pickfiles {
-    padding: 10px;
-    background: #000;
-    border-radius: 5px;
-    color: #fff;
-  } */
-  .link {
-    color: red;
-  }
-  .progress {
-    color: red;
-    font-size: 30px;
-    margin-top: 20px;
-  }
-  .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
-  }
+<style scode>
+.title{
+  margin:90px 0 40px 0;
+}
+.el-default .el-icon-upload {
+  margin-top: 125px;
+}
+.el-upload-dragger {
+  width: 350px;
+  height: 350px;
+}
+.avatar {
+  width: 350px;
+  height: 350px;
+  display: block;
+}
 </style>
