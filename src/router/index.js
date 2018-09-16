@@ -72,6 +72,12 @@ export const constantRouterMap = [
         meta: { title: 'BaseForm' }
       },
       {
+        path: 'qiniu',
+        name: 'qiniu',
+        component: () => import('@/views/form/qiniu'),
+        meta: { title: 'qiniu' }
+      },
+      {
         path: 'quillEditor',
         name: 'quillEditor',
         component: () => import('@/views/form/quillEditor'),
