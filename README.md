@@ -10,13 +10,13 @@
 
 访问： https://www.easy-mock.com/
 
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/easy-mock.png)
+![image](https://github.com/endless-z/vue-element-admin/blob/master/src/screenshots/easy-mock.png)
 
 
 # 在线演示请点这里
 
 [Preview]
-[在线 Demo](http://yjx-passion.github.io/vue-element-admin/#/)
+[在线 Demo](http://endless-z.github.io/vue-element-admin/#/)
 # 基于Vue2.0实现后台系统权限控制
 本项目目前设置了两种管理员 1、admin 2、editor
 每种类型的人看到的侧边栏不一样，可以进行的操作也不尽相同，于是就需要程序处理一下各个权限问题。
@@ -32,8 +32,8 @@
 在线体验功能：后续会把这个项目上线 敬请期待！
 # 本项目部分截图预览
 
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/login.png)
-![image](https://github.com/yjx-passion/vue-element-admin/blob/master/src/screenshots/table.png)
+![image](https://github.com/endless-z/vue-element-admin/blob/master/src/screenshots/login.png)
+![image](https://github.com/endless-z/vue-element-admin/blob/master/src/screenshots/table.png)
 
 ## Build Setup
   
